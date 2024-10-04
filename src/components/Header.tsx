@@ -1,9 +1,28 @@
+import {
+    Box,
+    Button,
+    Center,
+    Drawer,
+    DrawerBody,
+    DrawerCloseButton,
+    DrawerContent,
+    DrawerHeader,
+    DrawerOverlay,
+    Flex,
+    HStack,
+    IconButton,
+    Image,
+    Link,
+    Spacer,
+    VStack,
+    useDisclosure,
+} from '@chakra-ui/react';
 import React from 'react';
-import { Box, Flex, Image, Link, Spacer, HStack, Button } from '@chakra-ui/react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+import WhatsAppButton from './WhatsAppButton';
 
 const Header: React.FC = () => {
-    const whatsappLink = `https://wa.me/5548988661447`;
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <Box as="header" py={4} px={8} bg="white" shadow="sm" position="sticky" top="0" zIndex="1000">
@@ -14,6 +33,7 @@ const Header: React.FC = () => {
                     </Link>
                 </Box>
                 <Spacer />
+                {/* Menu for large screens */}
                 <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
                     <Link href="#benefits" fontWeight="bold">
                         Benefícios
@@ -28,19 +48,53 @@ const Header: React.FC = () => {
                         FAQ
                     </Link>
                 </HStack>
+                <Spacer />
+                <Box display={{ base: 'none', md: 'block' }}>
+                    <WhatsAppButton />
+                </Box>
+
+                {/* Hamburger Menu for Mobile */}
                 <Button
-                    as="a"
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    leftIcon={<FaWhatsapp />}
-                    colorScheme='green'
+                    aria-label="Open menu"
+                    as={IconButton}
+                    icon={<FaBars />}
+                    variant="outline"
+                    onClick={onOpen}
+                    display={{ base: 'block', md: 'none' }}
+                    colorScheme='white'
                     size="md"
-                    ml={4}
                 >
-                    Fale com a Tamy
+                    Open Menu
                 </Button>
             </Flex>
+
+            {/* Drawer for mobile menu */}
+            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+                <DrawerOverlay />
+                <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>Navegação</DrawerHeader>
+                    <DrawerBody>
+                        <VStack spacing={4} align="start">
+                            <Link href="#benefits" onClick={onClose}>
+                                Benefícios
+                            </Link>
+                            <Link href="#features" onClick={onClose}>
+                                Funcionalidades
+                            </Link>
+                            <Link href="#testimonials" onClick={onClose}>
+                                Depoimentos
+                            </Link>
+                            <Link href="#faq" onClick={onClose}>
+                                FAQ
+                            </Link>
+                            <Center w="full">
+                                <WhatsAppButton />
+                            </Center>
+                        </VStack>
+                    </DrawerBody>
+                </DrawerContent>
+            </Drawer>
         </Box>
     );
 };

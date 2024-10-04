@@ -1,32 +1,76 @@
-import { Box, Heading, Image, Stack, Text, VStack } from '@chakra-ui/react';
+// components/Hero.tsx
+import { Box, Stack, Heading, Text, VStack, Image, Center, HStack, Icon } from '@chakra-ui/react';
+import { FaMagic } from 'react-icons/fa';
 import React from 'react';
 import WhatsAppButton from './WhatsAppButton';
 
 const Hero: React.FC = () => {
     return (
-        <Box as="section" bg="white" py={{ base: 10, md: 20 }} px={{ base: 6, md: 16 }}>
+        <Box as="section" bg="white" py={{ base: 8, md: 20 }} px={{ base: 4, md: 16 }}>
             <Stack
                 direction={{ base: 'column', md: 'row' }}
                 alignItems="center"
                 justifyContent="space-evenly"
-                spacing={10}
+                spacing={{ base: 8, md: 10 }}
             >
-                {/* Left side: Text Content */}
-                <VStack alignItems="flex-start" maxW="600px" spacing={6} textAlign={{ base: 'center', md: 'left' }}>
-                    <Heading as="h1" fontSize={{ base: '2xl', md: '4xl' }} fontWeight="bold" color="blue.700">
-                        Simplifique o Controle das Suas Finanças com a Tamy
+                {/* Left Side: Text Content */}
+                <VStack
+                    alignItems={{ base: 'center', md: 'flex-start' }}
+                    maxW="600px"
+                    spacing={6}
+                    textAlign={{ base: 'center', md: 'left' }}
+                >
+                    {/* Badge */}
+                    <HStack
+                        spacing={2}
+                        bgGradient="linear(to-r, green.500, green.700)"
+                        color="white"
+                        px={4}
+                        py={1}
+                        borderRadius="full"
+                        alignSelf={{ base: 'center', md: 'flex-start' }}
+                        boxShadow="md"
+                    >
+                        <Icon as={FaMagic} boxSize={4} />
+                        <Text fontSize="sm" fontWeight="bold">
+                            Experimente a Tamy Agora
+                        </Text>
+                    </HStack>
+
+                    {/* Hero Title */}
+                    <Heading
+                        as="h1"
+                        fontSize={{ base: '2xl', md: '5xl' }}
+                        fontWeight="bold"
+                        color="green.900"
+                        lineHeight={{ base: 'shorter', md: 'normal' }}
+                    >
+                        Tome o Controle de Suas Finanças Agora com a Tamy
                     </Heading>
-                    <Text fontSize={{ base: 'lg', md: 'xl' }} color="gray.600">
-                        Sua assistente financeira inteligente no WhatsApp. Gerencie gastos, acompanhe transações e fique no controle da sua vida financeira com facilidade.
+
+                    {/* Hero Subtext */}
+                    <Text fontSize={{ base: 'md', md: 'xl' }} color="gray.600">
+                        Tamy é sua assistente financeira no WhatsApp que facilita o controle de gastos
+                        e o planejamento financeiro, de forma simples e automática.
                     </Text>
-                    <WhatsAppButton />
+
+                    {/* Additional Hero Text */}
+                    <Text fontSize={{ base: 'sm', md: 'lg' }} color="gray.500">
+                        Gerencie suas transações em tempo real, acompanhe metas de economia e
+                        fique no controle de sua vida financeira sem complicações.
+                    </Text>
+
+                    {/* WhatsApp CTA Button */}
+                    <Center w="full">
+                        <WhatsAppButton />
+                    </Center>
                 </VStack>
 
-                {/* Right side: Image */}
+                {/* Right Side: Phone Mockup */}
                 <Image
-                    src="/static/images/tamy-whatsapp-preview.png" // Update with your actual image path
+                    src="/static/images/tamy-whatsapp-preview.png" // Ensure high-resolution image here
                     alt="Tamy WhatsApp preview"
-                    boxSize={{ base: '350px', md: '650px' }}
+                    boxSize={{ base: '250px', md: '500px' }}
                     objectFit="contain"
                     borderRadius="md"
                 />

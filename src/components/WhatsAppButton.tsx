@@ -19,7 +19,8 @@ const WhatsAppButton: React.FC = () => {
             rel="noopener noreferrer"
             leftIcon={<FaWhatsapp />}
             colorScheme="green"
-            size="lg"
+            size={{ base: 'sm', md: 'md' }}
+            flexWrap="wrap"
         >
             Fale com a Tamy no WhatsApp
         </Button>
