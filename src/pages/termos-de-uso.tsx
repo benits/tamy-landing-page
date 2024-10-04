@@ -2,6 +2,7 @@
 import React from 'react';
 import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import Head from 'next/head';
+import Header from '@/components/Header';
 
 const TermosDeUso: React.FC = () => {
     return (
@@ -9,6 +10,7 @@ const TermosDeUso: React.FC = () => {
             <Head>
                 <title>Termos de Uso - Tamy</title>
             </Head>
+            <Header />
             <Box py={{ base: 20, md: 28 }} px={8} maxW="800px" mx="auto">
                 <Heading as="h1" fontSize={{ base: '2xl', md: '4xl' }} mb={8}>
                     Termos de Uso
