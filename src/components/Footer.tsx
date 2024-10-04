@@ -1,4 +1,4 @@
-import { Box, HStack, Icon, Image, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, HStack, Icon, Image, Link, Stack, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { FaLock } from 'react-icons/fa';
 
@@ -22,10 +22,10 @@ const Footer: React.FC = () => {
                     <Icon as={FaLock} boxSize={5} />
                     <Text fontSize="sm">SSL Seguro</Text>
                 </HStack>
-                <HStack spacing={2}>
-                    <Image src="/static/images/LGPD.png" alt="LGPD Compliance" boxSize="50px" objectFit="contain" />
+                <VStack spacing={2}>
+                    <Image src="/static/images/LGPD.png" alt="LGPD Compliance" boxSize="60px" objectFit="contain" />
                     <Text fontSize="sm">Conformidade com LGPD</Text>
-                </HStack>
+                </VStack>
             </HStack>
 
 
