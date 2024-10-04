@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         <Box as="header" py={4} px={8} bg="white" shadow="sm" position="sticky" top="0" zIndex="1000">
             <Flex alignItems="center">
                 <Box>
-                    <Image src="/images/logo.png" alt="Tamy Logo" height="40px" />
+                    <Image src="/static/images/logo-tamy.png" alt="Tamy Logo" height="60px" borderRadius="md" />
                 </Box>
                 <Spacer />
                 <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
